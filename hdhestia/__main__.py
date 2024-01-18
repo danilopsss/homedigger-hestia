@@ -1,7 +1,7 @@
 import logging
 from argparse import ArgumentParser
-from arguments import args_list
-from argument_definer import ArgumentDefiner
+from .arguments import args_list
+from .argument_definer import ArgumentDefiner
 
 
 logging.basicConfig(
