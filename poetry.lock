@@ -188,7 +188,7 @@ unidecode = "^1.3.7"
 type = "git"
 url = "https://github.com/danilopsss/homedigger-models.git"
 reference = "HEAD"
-resolved_reference = "beae43f72fcea0688908a55f482a804820c88e5d"
+resolved_reference = "364b81c0510cd2c60c0227c84c8c6613c38617e2"
 
 [[package]]
 name = "iniconfig"
