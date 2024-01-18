@@ -153,37 +153,42 @@ test = ["objgraph", "psutil"]
 
 [[package]]
 name = "hdmailman"
-version = "1.0.3"
+version = "1.0.0"
 description = ""
 optional = false
 python-versions = "3.11.7"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 pika = "^1.3.2"
 
 [package.source]
-type = "directory"
-url = "../homedigger-mailman"
+type = "git"
+url = "https://github.com/danilopsss/homedigger-mailman.git"
+reference = "HEAD"
+resolved_reference = "a76017e2b6c916b4f6c9eb12ad92e53caabafe0e"
 
 [[package]]
 name = "hdmdata"
-version = "1.1.5"
+version = "1.0.0"
 description = ""
 optional = false
 python-versions = "3.11.7"
 files = []
-develop = true
+develop = false
 
 [package.dependencies]
 psycopg2 = "^2.9.9"
 pydantic = "^2.5.3"
 sqlalchemy = "^2.0.25"
+unidecode = "^1.3.7"
 
 [package.source]
-type = "directory"
-url = "../homedigger-models"
+type = "git"
+url = "https://github.com/danilopsss/homedigger-models.git"
+reference = "HEAD"
+resolved_reference = "beae43f72fcea0688908a55f482a804820c88e5d"
 
 [[package]]
 name = "iniconfig"
@@ -551,7 +556,18 @@ files = [
     {file = "typing_extensions-4.9.0.tar.gz", hash = "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"},
 ]
 
+[[package]]
+name = "unidecode"
+version = "1.3.8"
+description = "ASCII transliterations of Unicode text"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "Unidecode-1.3.8-py3-none-any.whl", hash = "sha256:d130a61ce6696f8148a3bd8fe779c99adeb4b870584eeb9526584e9aa091fd39"},
+    {file = "Unidecode-1.3.8.tar.gz", hash = "sha256:cfdb349d46ed3873ece4586b96aa75258726e2fa8ec21d6f00a591d98806c2f4"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.7"
-content-hash = "2a7835177f9190378ada5e3112bcd5b39da2cd10500cfe283d8a1c8567bf0e20"
+content-hash = "b241ce8c1cef7b9a4af0e3b316d9dc6b35b14e30fe81dbf9c42bffe4a9192bb1"

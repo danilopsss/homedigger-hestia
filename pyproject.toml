@@ -8,16 +8,14 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "3.11.7"
 pika = "^1.3.2"
+hdmailman = {git = "https://github.com/danilopsss/homedigger-mailman.git"}
+hdmdata = {git = "https://github.com/danilopsss/homedigger-models.git"}
+
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.4"
-hdmdata = {path = "../homedigger-models", develop = true}
 black = "^23.12.1"
-
-
-[tool.poetry.group.internal.dependencies]
-hdmailman = {path = "../homedigger-mailman", develop = true}
 
 [build-system]
 requires = ["poetry-core"]

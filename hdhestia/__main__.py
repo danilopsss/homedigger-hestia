@@ -1,13 +1,11 @@
 import logging
-from concurrent.futures import ThreadPoolExecutor
 from argparse import ArgumentParser
 from hdhestia.arguments import args_list
 from hdhestia.argument_definer import ArgumentDefiner
-from hdhestia.callback_methods import CallbackHandler
 
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
@@ -33,8 +31,5 @@ for arg in args_list:
 
 args = arg_parser.parse_args()
 
-# with ThreadPoolExecutor(max_workers=5) as executor:
-#     consumer = ArgumentDefiner(args=args)
-#     executor.submit(consumer.start_broker_consumer)
 consumer = ArgumentDefiner(args=args)
 consumer.start_broker_consumer()
