@@ -1,6 +1,6 @@
 from argparse import Namespace
 from hdmailman import MailMan
-from .callback_methods import CallbackHandler
+from callback_methods import CallbackHandler
 
 
 class ArgumentDefiner:
