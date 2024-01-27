@@ -22,4 +22,7 @@ class ArgumentDefiner:
         return self._mailman.broker
 
     def start_broker_consumer(self) -> None:
-        self.broker.start_consuming(queue=self.get_args.queue, callback=self.callback)
+        self.broker.start_consuming(
+            queue=self.get_args.queue,
+            callback=self.callback
+        )

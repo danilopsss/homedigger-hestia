@@ -16,6 +16,8 @@ hdmdata = {git = "https://github.com/danilopsss/homedigger-models.git"}
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.4"
 black = "^23.12.1"
+hdmailman = {path = "../homedigger-mailman", develop = true}
+hdmdata = {path = "../homedigger-models", develop = true}
 
 [build-system]
 requires = ["poetry-core"]

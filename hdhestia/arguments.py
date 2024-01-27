@@ -10,6 +10,7 @@ NOTE: The sintax is the same of the ArgumentParser.add_argument method.
 
 from collections import namedtuple
 
+
 ArgumentStruct = namedtuple("ArgumentStruct", ["args", "kwargs"])
 
 args_list = [
