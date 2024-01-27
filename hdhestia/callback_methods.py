@@ -33,7 +33,6 @@ class CallbackHandler:
         if not len(self._bulk_pre) >= self._chunk_size:
             self._bulk_pre.append(unserialized_body)
         else:
-            breakpoint()
             processed = RentOfficeProcessor(self._bulk_pre).process()
             with get_session() as session:
                 try:
