@@ -36,7 +36,8 @@ class CallbackHandler:
             processed = RentOfficeProcessor(self._bulk_pre).process()
             with get_session() as session:
                 try:
-                    session.add_all(processed)
+                    session.begin()
+                    [session.merge(item) for item in processed]
                     session.commit()
                 except Exception as e:
                     logging.error(e)
