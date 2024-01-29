@@ -7,9 +7,9 @@ from sqlalchemy import Result
 class RentOfficeProcessor:
     def __init__(self, rent_office_list: list):
         self._rent_office_list = iter(rent_office_list)
-        self._test = rent_office_list
+        self._rent_offices = rent_office_list
         self._current_rent_office = None
-        self._bulk_ready = []
+        self._bulk_ready = set()
 
     @property
     def rent_office(self):
@@ -31,12 +31,10 @@ class RentOfficeProcessor:
             return result[0][0]
 
     def add_rent_office_to_advert(self, office: RentOffice) -> None:
-        advertisements = []
         for adverisement in office.advertisements:
             adverisement.rent_office = office
             adverisement.rent_office_id = office.id
-            advertisements.append(adverisement)
-        self._bulk_ready.extend(advertisements)
+            self._bulk_ready.add(adverisement)
 
     def process(self) -> list:
         while rent_office := self.next_rent_office():
