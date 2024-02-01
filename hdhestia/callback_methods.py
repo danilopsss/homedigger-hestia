@@ -30,19 +30,17 @@ class CallbackHandler:
     def _callback_advertisements(self, *args):
         body = args[-1]
         unserialized_body = pickle.loads(body)
-        if not len(self._bulk_pre) >= self._chunk_size:
-            self._bulk_pre.append(unserialized_body)
-        else:
-            processed = RentOfficeProcessor(self._bulk_pre).process()
+        processed = RentOfficeProcessor(unserialized_body).process()
+        if processed:
             with get_session() as session:
-                try:
-                    session.begin()
-                    [session.merge(item) for item in processed]
-                    session.commit()
-                except Exception as e:
-                    logging.error(e)
-                    session.rollback()
-            self._bulk_pre.clear()
+                for item in processed:
+                    try:
+                        session.begin()
+                        session.merge(item)
+                        session.commit()
+                    except Exception as e:
+                        session.rollback()
+
 
 
     def _callback_visited_links(self, *args):
