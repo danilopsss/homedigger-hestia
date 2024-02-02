@@ -29,11 +29,10 @@ class RentOfficeProcessor:
 
     def process(self) -> list:
         advertisings = []
-        for _, real_state_agency in self.real_state_agency.items():
-            if not (db_rent_office := self.has_rent_office(real_state_agency)):
-                real_state_agency.save()
-            else:
-                advertisings.extend(
-                    self.add_rent_office_to_advert(db_rent_office, real_state_agency.advertisements)
-                )
+        if not (db_rent_office := self.has_rent_office(self.real_state_agency)):
+            self.real_state_agency.save()
+        else:
+            advertisings.extend(
+                self.add_rent_office_to_advert(db_rent_office, self.real_state_agency.advertisements)
+            )
         return advertisings
